@@ -1,0 +1,265 @@
+ABOUT REAL JHON S. PALACIO - PERSONAL PORTFOLIO KNOWLEDGE BASE
+
+=== PERSONAL INFORMATION ===
+Full Name: Real Jhon S. Palacio
+Course: Bachelor of Science in Information Technology (BSIT) - 4th Year
+School: University of Cebu - Main Campus
+Location: Cebu City, Philippines
+Status: Senior BSIT Student, graduating soon
+
+=== EDUCATIONAL BACKGROUND ===
+Current Education:
+- Program: Bachelor of Science in Information Technology (BSIT)
+- Year Level: 4th Year (Senior)
+- Institution: University of Cebu - Main Campus
+- Location: Cebu City, Philippines
+- Expected Graduation: 2025
+
+Academic Focus:
+Real Jhon is in his final year of the BSIT program, focusing on practical application of programming skills, software development, and emerging technologies in information technology. As a senior student, he has completed most of his major courses and is now working on capstone projects and advanced IT subjects.
+
+=== TECHNICAL SKILLS ===
+
+Programming Languages:
+- PHP: Server-side scripting, web application development, dynamic website creation
+- Python: General-purpose programming, scripting, automation, data processing
+
+Development Tools & Technologies:
+- Visual Studio Code (VS Code): Primary code editor for all development work
+- React: JavaScript library for building user interfaces and front-end applications
+- Web Development: HTML, CSS, JavaScript fundamentals
+- Database Management: SQL and database design (learned through coursework)
+- Version Control: Basic Git and GitHub for code management
+
+Technical Competencies:
+- Full-stack web development using PHP and React
+- Backend development with PHP for server-side logic
+- Frontend development with React for interactive user interfaces
+- Code editing and debugging using VS Code
+- Problem-solving and algorithm development
+- Software development lifecycle understanding
+
+=== PROJECTS & PORTFOLIO ===
+
+Major Projects:
+
+1. Budget Tracker System
+   Type: Web Application
+   Description: A comprehensive budget tracking system that helps users manage their finances, track expenses, and monitor spending patterns.
+   Technologies: PHP, MySQL database, HTML, CSS, JavaScript
+   Features:
+   - User registration and authentication
+   - Income and expense tracking
+   - Category-based budget management
+   - Monthly and yearly financial reports
+   - Visual charts and graphs for spending analysis
+   - Budget alerts and notifications
+   Purpose: Helps individuals and families maintain financial discipline and achieve their savings goals
+   Skills Demonstrated: Database design, CRUD operations, user authentication, data visualization
+
+2. Website Development Projects
+   Type: Multiple Web Development Projects
+   Description: Real Jhon has developed several websites throughout his academic journey, demonstrating proficiency in web technologies.
+   Technologies: HTML, CSS, JavaScript, PHP, React
+   Project Types Include:
+   - Personal portfolio websites
+   - School project websites
+   - Business landing pages
+   - E-commerce prototypes
+   - Content management systems
+   Skills Demonstrated: Responsive design, user experience (UX) design, frontend and backend integration, modern web standards
+
+Current Project:
+- ELAI Final Project: AI-Powered RAG Chatbot using Flowise, Google Gemini API, and cloud deployment on Railway
+
+=== PROFESSIONAL INTERESTS ===
+
+Entrepreneurship:
+Real Jhon has a strong interest in entrepreneurship and business innovation. He combines his technical IT skills with entrepreneurial thinking to explore opportunities in:
+- Tech startups and digital businesses
+- Software as a Service (SaaS) solutions
+- E-commerce and online business models
+- Turning coding skills into profitable ventures
+- Understanding business technology and digital transformation
+
+This entrepreneurial mindset drives him to not just code, but to think about how technology can solve real-world business problems and create value.
+
+Gaming:
+As a gaming enthusiast, Real Jhon enjoys:
+- Playing various video games across different genres
+- Understanding game mechanics and design
+- Exploring the technical aspects of game development
+- Keeping up with gaming industry trends
+- Using gaming as a way to relax and unwind from studies
+
+His interest in gaming also influences his approach to software development, particularly in creating engaging user experiences and interactive applications.
+
+=== CAREER GOALS & ASPIRATIONS ===
+
+Short-term Goals:
+- Complete BSIT degree with strong academic standing
+- Build a comprehensive portfolio of projects
+- Gain practical experience through internships or part-time work
+- Master modern web development frameworks and tools
+- Prepare for entry into the IT industry
+
+Long-term Aspirations:
+- Work as a full-stack web developer or software engineer
+- Start his own tech business or startup
+- Combine programming skills with entrepreneurial ventures
+- Contribute to innovative technology solutions
+- Become proficient in emerging technologies like AI and machine learning
+
+=== STRENGTHS & QUALITIES ===
+
+Technical Strengths:
+- Strong foundation in web development (frontend and backend)
+- Problem-solving abilities through programming
+- Adaptability to new technologies and frameworks
+- Practical project experience with real-world applications
+- Understanding of software development best practices
+
+Personal Qualities:
+- Entrepreneurial mindset and business thinking
+- Self-motivated and driven to learn
+- Creative approach to problem-solving
+- Balance between technical skills and business acumen
+- Passionate about technology and innovation
+
+=== CONTACT & AVAILABILITY ===
+
+Location: Cebu City, Philippines
+Status: Available for internships, part-time opportunities, and freelance projects
+Open to: Web development projects, software development opportunities, tech collaborations, entrepreneurial ventures
+
+Real Jhon is actively seeking opportunities to apply his skills in real-world settings and is open to connecting with potential employers, collaborators, or clients in the Cebu City area and beyond.
+
+=== ABOUT THIS CHATBOT ===
+
+This AI assistant represents Real Jhon S. Palacio and can answer questions about his:
+- Educational background and academic achievements
+- Technical skills and programming expertise
+- Project portfolio and development experience
+- Career interests and professional goals
+- Personal interests in entrepreneurship and gaming
+- Availability for opportunities
+
+The chatbot is built using RAG (Retrieval Augmented Generation) technology with Flowise and Google Gemini AI, demonstrating Real Jhon's ability to work with cutting-edge AI technologies and deploy modern web applications.
+
+=== FREQUENTLY ASKED QUESTIONS ===
+
+Q: What year is Real Jhon currently in?
+A: Real Jhon is a 4th year (senior) BSIT student at the University of Cebu - Main Campus, expected to graduate in 2025.
+
+Q: What programming languages does Real Jhon know?
+A: Real Jhon is proficient in PHP and Python. He also has experience with JavaScript (through React framework) and standard web technologies like HTML and CSS.
+
+Q: What projects has Real Jhon worked on?
+A: Real Jhon has developed several projects including a Budget Tracker System (a full-featured web application for financial management), multiple website development projects, and is currently working on an AI-powered chatbot using RAG technology for his ELAI finals.
+
+Q: What tools does Real Jhon use for development?
+A: Real Jhon primarily uses Visual Studio Code (VS Code) as his code editor. He also works with React for frontend development and has experience with various web development tools and technologies.
+
+Q: Is Real Jhon interested in entrepreneurship?
+A: Yes! Real Jhon has a strong interest in entrepreneurship and combines his technical IT skills with business thinking. He's interested in tech startups, SaaS solutions, and turning coding skills into profitable ventures.
+
+Q: What are Real Jhon's hobbies?
+A: Real Jhon enjoys gaming and has a passion for entrepreneurship. Gaming helps him relax and unwind, while his entrepreneurial interest drives him to think about business applications of technology.
+
+Q: Where is Real Jhon located?
+A: Real Jhon is based in Cebu City, Philippines, where he attends the University of Cebu - Main Campus.
+
+Q: Is Real Jhon available for work or projects?
+A: As a graduating senior, Real Jhon is open to internships, part-time opportunities, freelance projects, and entry-level positions in web development and software engineering.
+
+Q: What makes Real Jhon stand out?
+A: Real Jhon combines strong technical skills in web development with an entrepreneurial mindset. He's not just a coder—he thinks about how technology can solve real business problems and create value. His practical project experience, including the Budget Tracker System, demonstrates his ability to build complete, functional applications.
+
+Q: What is Real Jhon's approach to learning?
+A: Real Jhon is self-motivated and continuously learning new technologies. His current work with AI technologies (Flowise, RAG, Gemini AI) shows his commitment to staying current with emerging tech trends and expanding his skill set beyond traditional web development.
+
+=== TECHNICAL EXPERTISE DETAILS ===
+
+PHP Development:
+- Building dynamic web applications
+- Server-side scripting and logic
+- Database connectivity with MySQL
+- Form handling and data validation
+- Session management and user authentication
+- RESTful API development basics
+
+Python Programming:
+- General-purpose programming and scripting
+- Automation and data processing
+- Problem-solving with Python
+- Algorithm implementation
+- Working with Python libraries and modules
+
+React Development:
+- Building modern, interactive user interfaces
+- Component-based architecture
+- State management in React applications
+- Creating responsive and dynamic web applications
+- Integrating React with backend services
+
+Database & Backend:
+- SQL database design and management
+- CRUD operations (Create, Read, Update, Delete)
+- Database normalization and relationships
+- Backend API development
+- User authentication systems
+
+=== LEARNING JOURNEY & GROWTH ===
+
+Real Jhon's journey through the BSIT program has been marked by continuous growth and hands-on learning. Starting from basic programming concepts in his first year, he has progressively built expertise in:
+
+Year 1-2: Foundation
+- Basic programming logic and algorithms
+- Introduction to web technologies
+- Database fundamentals
+- Problem-solving skills
+
+Year 3-4: Advanced Application
+- Full-stack web development
+- Real-world project implementation
+- Modern frameworks and tools
+- Emerging technologies like AI
+- Professional software development practices
+
+Current Focus:
+As a senior student, Real Jhon is now focusing on:
+- Mastering advanced web development concepts
+- Exploring AI and machine learning applications
+- Building a strong portfolio for career entry
+- Preparing for the professional IT industry
+- Combining technical skills with business acumen
+
+This progressive learning approach has given Real Jhon not just theoretical knowledge, but practical, hands-on experience in building real applications that solve real problems.
+
+=== WHY HIRE REAL JHON? ===
+
+Strong Technical Foundation:
+- 4 years of intensive BSIT education
+- Proven project delivery (Budget Tracker, websites, etc.)
+- Modern tech stack (PHP, Python, React)
+- Practical development experience
+
+Business-Minded Developer:
+- Understands technology from a business perspective
+- Entrepreneurial thinking and innovation
+- Focused on creating value, not just writing code
+- Can bridge the gap between technical and business teams
+
+Quick Learner:
+- Successfully adapting to new technologies (currently mastering AI tools)
+- Self-motivated and proactive in skill development
+- Comfortable with modern development workflows
+- Always exploring new technologies and frameworks
+
+Ready for Industry:
+- Graduating senior with completed coursework
+- Portfolio of real projects to demonstrate capabilities
+- Located in Cebu City, Philippines (major IT hub)
+- Eager to contribute to real-world projects
+
+Real Jhon is not just another graduate—he's a technically skilled, business-minded developer ready to make an impact in the IT industry.

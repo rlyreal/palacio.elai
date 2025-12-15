@@ -1,0 +1,613 @@
+REAL JHON'S ELAI PROJECT - COMPLETE SETUP GUIDE
+============================================
+
+🎯 WHAT YOU HAVE SO FAR:
+✅ Gemini API Key (saved in Notepad)
+✅ Node.js v20 installed
+✅ knowledge_base.txt (your personalized chatbot knowledge)
+✅ index.html (your portfolio website with chatbot ready)
+
+📋 WHAT YOU NEED TO DO:
+1. Install and run Flowise locally
+2. Build your RAG chatbot in Flowise
+3. Test it locally
+4. Deploy Flowise to Railway
+5. Get the embed code
+6. Update your website with the embed code
+7. Deploy website to Netlify
+8. Test everything
+
+Let's go step by step! 🚀
+
+═══════════════════════════════════════════════════════════
+
+PHASE 1: INSTALL & RUN FLOWISE LOCALLY
+═══════════════════════════════════════════════════════════
+
+Step 1: Open Command Prompt (Windows) or Terminal (Mac)
+   - Windows: Press Windows key, type "cmd", press Enter
+   - Mac: Press Cmd+Space, type "terminal", press Enter
+
+Step 2: Verify Node.js is installed
+   Type: node --version
+   Press Enter
+   
+   You should see: v20.x.x
+   
+   If you see v22.x.x, you need to downgrade:
+   - Download NVM: https://github.com/coreybutler/nvm-windows/releases
+   - Get nvm-setup.exe
+   - Install it
+   - Close and reopen Command Prompt
+   - Type: nvm install 20
+   - Type: nvm use 20
+   - Type: node --version (should show v20.x.x)
+
+Step 3: Install and run Flowise
+   Type: npx flowise start
+   Press Enter
+   
+   First time will ask: "Ok to proceed? (y)"
+   → Type: y
+   → Press Enter
+   
+   Wait 5-10 minutes for installation
+   You'll see yellow warnings - IGNORE THEM, this is normal
+   
+   Wait until you see:
+   "⚡️ [server]: Flowise Server is listening at :3000"
+   
+   ✅ Success! Don't close this Command Prompt window!
+
+Step 4: Open Flowise in your browser
+   Open your browser (Chrome, Edge, Firefox)
+   Go to: http://localhost:3000
+   
+   You should see the Flowise setup page!
+
+Step 5: Create your Flowise account
+   Fill in the form:
+   - Name: Real Jhon Palacio
+   - Email: your-email@gmail.com
+   - Password: Create a strong password
+     (at least 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special character)
+     Example: RealJhon2025!
+   
+   Click "Sign Up"
+   
+   ✅ You're now in Flowise!
+
+═══════════════════════════════════════════════════════════
+
+PHASE 2: ADD YOUR GEMINI API KEY
+═══════════════════════════════════════════════════════════
+
+Step 1: Click "Credentials" in the left sidebar
+
+Step 2: Click "+ Add Credential" (blue button, top-right)
+
+Step 3: Find "Google Generative AI"
+   - You can search for "gemini" or "google"
+   - Click on "Google Generative AI"
+
+Step 4: Fill in the form:
+   - Credential Name: My Gemini API
+   - Google API Key: [Paste your API key from Notepad]
+   
+   Click "Add" or "Save"
+   
+   ✅ API Key added!
+
+═══════════════════════════════════════════════════════════
+
+PHASE 3: BUILD YOUR RAG CHATBOT
+═══════════════════════════════════════════════════════════
+
+Step 1: Go to Chatflows
+   Click "Chatflows" in the left sidebar
+   Click "+ Add New" (blue button, top-right)
+
+Step 2: Add Plain Text node
+   Click the blue "+" button (left side)
+   Scroll to "Document Loaders" → Click to expand
+   Find "Plain Text" → Click it
+   
+   Configure Plain Text:
+   - Click in the "Text" field
+   - Open your knowledge_base.txt file (from this project)
+   - Copy ALL the text
+   - Paste it into the "Text" field
+   - Leave "Text Splitter" empty for now
+
+Step 3: Add Text Splitter node
+   Click the "+" button
+   Find "Text Splitters" → Expand
+   Select "Recursive Character Text Splitter"
+   
+   Settings (keep defaults):
+   - Chunk Size: 1000
+   - Chunk Overlap: 200
+
+Step 4: Add Embeddings node
+   Click the "+" button
+   Find "Embeddings" → Expand
+   Select "GoogleGenerativeAI Embeddings"
+   
+   Configure:
+   - Connect Credential: Select "My Gemini API"
+   - Model Name: text-embedding-004 (IMPORTANT: use this exact model)
+   - Leave other settings as default
+
+Step 5: Add Vector Store node
+   Click the "+" button
+   Find "Vector Stores" → Expand
+   Select "In-Memory Vector Store"
+   
+   Settings:
+   - Top K: 4 (default is fine)
+
+Step 6: Add Chat Model node
+   Click the "+" button
+   Find "Chat Models" → Expand
+   Select "ChatGoogleGenerativeAI"
+   
+   Configure:
+   - Connect Credential: Select "My Gemini API"
+   - Model Name: Wait for it to load, then select "gemini-pro"
+   - Temperature: 0.9 (default)
+
+Step 7: Add QA Chain node
+   Click the "+" button
+   Find "Chains" → Expand
+   Select "Conversational Retrieval QA Chain"
+
+Step 8: CONNECT ALL NODES (Very Important!)
+   Connect the nodes like this:
+   
+   Connection 1: Plain Text → Text Splitter
+   - Find the blue dot next to "Text Splitter" on Plain Text node
+   - Click and drag to Recursive Character Text Splitter
+   
+   Connection 2: Plain Text → Vector Store
+   - Find the "Document" output at bottom of Plain Text
+   - Drag to "Document" input on Vector Store
+   
+   Connection 3: Embeddings → Vector Store
+   - Drag from GoogleGenerativeAI Embeddings output
+   - To "Embeddings" input on Vector Store
+   
+   Connection 4: Chat Model → QA Chain
+   - Drag from ChatGoogleGenerativeAI output
+   - To "Chat Model" input on QA Chain
+   
+   Connection 5: Vector Store → QA Chain
+   - Drag from "Memory Retriever" output of Vector Store
+   - To "Vector Store Retriever" input on QA Chain
+   
+   Your flow should look like this:
+   
+   Plain Text ──→ Text Splitter
+       ↓
+   Vector Store ←── Embeddings
+       ↓
+   QA Chain ←── Chat Model
+
+Step 9: Customize the chatbot response (OPTIONAL but RECOMMENDED)
+   Click on "Conversational Retrieval QA Chain" node
+   Click "Additional Parameters"
+   Find "Response Prompt" (Section 2)
+   
+   Replace with this:
+   
+   You are an AI assistant representing Real Jhon S. Palacio, a 4th-year Bachelor of Science in Information Technology student at the University of Cebu - Main Campus.
+
+   Your role is to provide clear, direct, and professional answers about his background, education, technical skills, projects, and interests.
+
+   Using the provided context, answer questions naturally without phrases like "based on the document", "according to the information", or "based on what I know". Simply provide accurate information as if you are his official representative.
+
+   Context: {context}
+
+   Provide a concise, professional response.
+
+   If the information is not available in the context, respond with: "I don't have that specific information at this time. You can ask me about Real Jhon's education, skills, projects, or interests."
+
+Step 10: Save your chatflow
+   Click on "Untitled Chatflow" at the top
+   Rename it: Real Jhon Portfolio Bot
+   (It auto-saves)
+
+Step 11: TEST YOUR CHATBOT!
+   Look for the purple chat icon (bottom-right or top-right)
+   Click it
+   
+   Try these questions:
+   - "Who are you?"
+   - "What year is Real Jhon in?"
+   - "What programming languages does he know?"
+   - "Tell me about the Budget Tracker project"
+   - "What are his career goals?"
+   
+   ✅ If it answers correctly → PERFECT!
+   ❌ If errors:
+      - Check all nodes are connected
+      - Verify Gemini API key is correct
+      - Make sure you used text-embedding-004 model
+      - Check knowledge base text is in Plain Text node
+
+═══════════════════════════════════════════════════════════
+
+PHASE 4: DEPLOY TO RAILWAY (CLOUD)
+═══════════════════════════════════════════════════════════
+
+Step 1: Go to Railway
+   Open: https://railway.app/
+   Click "Login" or "Start a New Project"
+   Sign up with GitHub (easiest) or email
+   Verify your account
+
+Step 2: Create New Project
+   Click "New Project"
+   
+   Accept Terms:
+   - Check all the boxes
+   - Click "I will not deploy any of that"
+   
+   Choose deployment:
+   - Click "Docker Image"
+   
+   Enter Docker Image:
+   - Type: flowiseai/flowise:latest
+   - Press Enter
+   
+   Wait for the configuration page to load
+
+Step 3: Configure Environment (should be automatic)
+   The following should already be set:
+   - PORT
+   - FLOWISE_USERNAME
+   - FLOWISE_PASSWORD
+   
+   If not, add them:
+   - Click "Variables" tab
+   - Add these:
+     PORT = 3000
+     FLOWISE_USERNAME = admin
+     FLOWISE_PASSWORD = [create a password]
+
+Step 4: Deploy
+   Click "Deploy" (purple button at top)
+   
+   Wait 3-5 minutes
+   Watch the logs - you'll see:
+   - "Building..." → "Active"
+   
+   ✅ When status shows "ACTIVE" → Deployed!
+
+Step 5: Get your Railway URL
+   Go to "Settings" tab
+   Find "Networking" section
+   
+   You should see a URL like:
+   flowise-production-xxxx.up.railway.app
+   
+   Copy this URL
+   Save it in Notepad (you'll need it!)
+   
+   Click on the URL to open your Railway Flowise
+
+Step 6: Create account in Railway Flowise
+   The Railway URL will open the setup page
+   Create account:
+   - Name: Real Jhon Palacio
+   - Email: your-email@gmail.com
+   - Password: [same or different from local]
+   
+   Click "Sign Up"
+
+Step 7: Add Gemini API Key to Railway
+   IMPORTANT: Credentials don't transfer, you need to add it again
+   
+   Click "Credentials"
+   Click "+ Add Credential"
+   Select "Google Generative AI"
+   
+   Fill in:
+   - Name: My Gemini API
+   - API Key: [Your Gemini API key from Notepad]
+   
+   Save
+
+Step 8: Rebuild your chatbot in Railway
+   Click "Chatflows"
+   Click "+ Add New"
+   
+   Now repeat ALL the steps from Phase 3:
+   - Add all 6 nodes (Plain Text, Text Splitter, Embeddings, Vector Store, Chat Model, QA Chain)
+   - Connect them all
+   - Paste your knowledge base into Plain Text
+   - Select "My Gemini API" for Embeddings and Chat Model
+   - Make sure to use text-embedding-004 for embeddings
+   - Make sure to use gemini-pro for chat model
+   - Add the custom Response Prompt (optional but recommended)
+   - Save as: Real Jhon Portfolio Bot
+
+Step 9: TEST Railway chatbot
+   Click the chat icon
+   Ask: "Who are you?"
+   
+   ✅ If it works → PERFECT! Your chatbot is live on the cloud!
+
+═══════════════════════════════════════════════════════════
+
+PHASE 5: GET EMBED CODE & UPDATE WEBSITE
+═══════════════════════════════════════════════════════════
+
+Step 1: Get the embed code from Railway Flowise
+   In Railway Flowise, open your chatflow
+   Look for "</>" icon or "Embed" button (top-right area)
+   Click it
+   
+   Copy the ENTIRE code - it looks like:
+   
+   <script type="module">
+     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+     Chatbot.init({
+       chatflowid: "abc123xyz",
+       apiHost: "https://flowise-production-xxxx.up.railway.app",
+     })
+   </script>
+
+Step 2: Update your index.html
+   Open your index.html file in VS Code or any text editor
+   
+   Scroll to the BOTTOM of the file
+   Find this comment:
+   <!-- IMPORTANT: Replace this with your actual Flowise embed code -->
+   
+   Uncomment the code below it and replace with YOUR embed code
+   
+   It should look like this:
+   
+   <script type="module">
+     import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+     Chatbot.init({
+       chatflowid: "YOUR-ACTUAL-CHATFLOW-ID",
+       apiHost: "https://YOUR-RAILWAY-URL.up.railway.app",
+       theme: {
+         button: {
+           backgroundColor: "#667eea",
+           right: 20,
+           bottom: 20,
+           size: 56,
+           iconColor: "white",
+         },
+         chatWindow: {
+           showTitle: true,
+           title: 'Ask About Real Jhon',
+           welcomeMessage: 'Hi! I can answer questions about Real Jhon Palacio. What would you like to know?',
+           backgroundColor: "#ffffff",
+           height: 700,
+           width: 400,
+           fontSize: 16,
+           botMessage: {
+             backgroundColor: "#f7f8ff",
+             textColor: "#303235",
+             showAvatar: true,
+           },
+           userMessage: {
+             backgroundColor: "#667eea",
+             textColor: "#ffffff",
+             showAvatar: true,
+           },
+           textInput: {
+             placeholder: 'Ask me anything about Real Jhon...',
+             backgroundColor: '#ffffff',
+             textColor: '#303235',
+             sendButtonColor: '#667eea',
+           },
+         }
+       }
+     })
+   </script>
+   </body>
+   </html>
+   
+   Save the file!
+
+Step 3: Test locally
+   Double-click your index.html file
+   It should open in your browser
+   
+   ✅ You should see the chatbot bubble!
+   ✅ Click it and test - it should work!
+
+═══════════════════════════════════════════════════════════
+
+PHASE 6: DEPLOY WEBSITE TO NETLIFY
+═══════════════════════════════════════════════════════════
+
+Step 1: Go to Netlify
+   Open: https://www.netlify.com/
+   Click "Sign Up"
+   Sign up with GitHub, Google, or email
+   Verify your account
+
+Step 2: Deploy your site
+   After logging in, click "Add new site"
+   Choose "Deploy manually"
+   
+   Drag and drop your index.html file into the upload area
+   (Just the index.html file, nothing else needed)
+   
+   Wait 30-60 seconds
+   
+   ✅ Deployed! You'll get a URL like:
+   random-name-12345.netlify.app
+
+Step 3: Customize your domain (OPTIONAL)
+   Click "Site settings"
+   Click "Change site name"
+   Enter: realjhon-portfolio (or any name you want)
+   Save
+   
+   Your URL becomes: realjhon-portfolio.netlify.app
+   
+   ✅ This is your Domain/SubDomain for your project requirement!
+
+═══════════════════════════════════════════════════════════
+
+PHASE 7: FINAL TESTING
+═══════════════════════════════════════════════════════════
+
+Test Everything:
+
+1. Open your Netlify URL in browser
+   ✅ Website loads correctly
+   ✅ All sections display properly
+   ✅ Chatbot bubble appears (bottom-right)
+
+2. Click the chatbot bubble
+   ✅ Chat window opens
+   ✅ Welcome message shows
+
+3. Test with these questions:
+   - "Who are you?"
+   - "What year is Real Jhon in?"
+   - "What programming languages does he know?"
+   - "Tell me about the Budget Tracker System"
+   - "What are his interests?"
+   - "What are his career goals?"
+   - "Is he available for opportunities?"
+   
+   ✅ Chatbot responds correctly to all questions
+
+4. Test on mobile (BONUS)
+   Open the URL on your phone
+   ✅ Website is responsive
+   ✅ Chatbot works on mobile
+
+═══════════════════════════════════════════════════════════
+
+WHAT YOU HAVE NOW:
+═══════════════════════════════════════════════════════════
+
+✅ Requirement 1: Domain/SubDomain (20%)
+   → Your Netlify URL: realjhon-portfolio.netlify.app
+
+✅ Requirement 2: Flowise Deployed to Cloud (20%)
+   → Railway URL: flowise-production-xxxx.up.railway.app
+   → Status: Active
+
+✅ Requirement 3: RAG Application Chatbot (20%)
+   → Working chatbot with your knowledge base
+   → Using RAG technology (embeddings + vector store)
+   → Powered by Google Gemini AI
+
+✅ Requirement 4: Website with AI Assistant (20%)
+   → Professional portfolio website
+   → Chatbot embedded and working
+   → Beautiful design
+
+✅ Requirement 5: Testing (20%)
+   → Tested thoroughly
+   → All features working
+   → Ready for demo
+
+TOTAL: 100/100 points! 🎉
+
+═══════════════════════════════════════════════════════════
+
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════
+
+Problem: Flowise won't install
+Solution:
+- Make sure Node.js v20 is installed
+- Restart computer after installing Node.js
+- Open a NEW Command Prompt window
+
+Problem: Chatbot not responding
+Solution:
+- Check Gemini API key is correct
+- Verify you used text-embedding-004 model
+- Make sure all nodes are connected
+- Check knowledge base text is in Plain Text node
+
+Problem: Railway deployment failed
+Solution:
+- Use Docker Image method: flowiseai/flowise:latest
+- Make sure you're on FREE tier
+- Wait full 5 minutes for deployment
+
+Problem: Chatbot not showing on website
+Solution:
+- Check embed code is BEFORE </body> tag
+- Verify Railway URL in embed code is correct
+- Check chatflow ID in embed code is correct
+- Make sure website is deployed (not viewing local file)
+
+═══════════════════════════════════════════════════════════
+
+SCREENSHOTS TO TAKE FOR YOUR DOCUMENTATION
+═══════════════════════════════════════════════════════════
+
+Take screenshots of:
+1. Local Flowise - Your chatflow with all nodes connected
+2. Testing locally - Chat showing correct responses
+3. Railway Dashboard - Shows "Active" status
+4. Railway Flowise - Your chatflow in the cloud
+5. Netlify Deployment - Success message
+6. Live Website - Your portfolio with chatbot bubble
+7. Working Chatbot - Chat conversation with good responses
+8. Mobile View (BONUS) - Website on phone
+
+═══════════════════════════════════════════════════════════
+
+TIPS FOR YOUR PRESENTATION
+═══════════════════════════════════════════════════════════
+
+1. Practice Your Demo:
+   - Know 5-10 good questions to ask the chatbot
+   - Show different types of questions (skills, projects, goals)
+   - Demonstrate how accurate the responses are
+
+2. Explain RAG Technology:
+   - RAG = Retrieval Augmented Generation
+   - Combines AI with your knowledge base
+   - More accurate than regular AI (no hallucination)
+   - Your data stays secure
+
+3. Highlight Your Skills:
+   - Built full-stack application
+   - Integrated AI technologies
+   - Deployed to cloud (Railway, Netlify)
+   - Created professional portfolio
+
+4. Be Ready to Explain:
+   - Why you chose this topic
+   - How the chatbot works
+   - What problems it solves
+   - How it demonstrates your skills
+
+═══════════════════════════════════════════════════════════
+
+YOU'RE DONE! 🎉
+═══════════════════════════════════════════════════════════
+
+Congratulations Real Jhon! You've built a complete AI-powered portfolio!
+
+What you've accomplished:
+✅ Learned RAG technology
+✅ Built AI chatbot with Flowise
+✅ Deployed to cloud (Railway)
+✅ Created professional portfolio
+✅ Integrated AI into website
+✅ Deployed website (Netlify)
+
+This is a REAL project you can show to employers!
+
+Good luck with your presentation! 💪
+
+If you need help at any step, refer back to this guide or ask your instructor.
+
+═══════════════════════════════════════════════════════════

@@ -15,20 +15,24 @@ body {
 .main-container {
     display: flex;
     min-height: 100vh;
-    background: linear-gradient(90deg, #e8e8e8 0%, #ffffff 100%);
+    background: #d3d3d3;
 }
 
 /* LEFT SIDE - HERO SECTION */
 .left-section {
     flex: 0 0 40%;
-    background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+    background: #d3d3d3;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     padding: 60px 40px;
-    position: relative;
-    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 40%;
+    overflow: hidden;
 }
 
 .logo-top {
@@ -97,6 +101,21 @@ body {
     display: flex;
     flex-direction: column;
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+    margin-left: 40%;
+    overflow-y: auto;
+    height: 100vh;
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Navigation Bar */
@@ -189,6 +208,7 @@ nav {
     height: 100%;
     animation: fadeIn 0.5s ease;
     background: transparent;
+    position: relative;
 }
 
 .profile-section.hidden {
@@ -203,6 +223,24 @@ nav {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes loadingRotate {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes floatImage {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
     }
 }
 
@@ -242,6 +280,9 @@ nav {
     border-radius: 50%;
     transition: all 0.3s ease;
     cursor: pointer;
+    position: relative;
+    z-index: 2;
+    animation: floatImage 3s ease-in-out infinite;
 }
 
 .profile-image:hover {
@@ -779,4 +820,49 @@ input:focus-visible,
 textarea:focus-visible {
     outline: 2px solid #00d4ff;
     outline-offset: 2px;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #999;
+    color: #666;
+    font-size: 0.85em;
+    background: #d3d3d3;
+    z-index: 5;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Typing Animation */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 49% {
+        border-right: 2px solid #000;
+    }
+    50%, 100% {
+        border-right: 2px solid transparent;
+    }
+}
+
+.typing-name {
+    display: inline-block;
+    border-right: 2px solid #000;
+    white-space: nowrap;
+    min-height: 1.2em;
 }

@@ -473,6 +473,8 @@ nav {
     
     .content-area {
         padding: 30px 20px 20px;
+        align-items: center;
+        justify-content: center;
     }
     
     .profile-image {
@@ -482,11 +484,17 @@ nav {
     /* About Section Mobile */
     .about-content {
         padding-top: 20px !important;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
     }
     
     .about-content > div:first-child {
         margin-bottom: 40px !important;
         margin-top: 10px !important;
+        display: flex;
+        justify-content: center;
     }
     
     .about-content h2 {
@@ -507,10 +515,24 @@ nav {
         flex-direction: column !important;
         gap: 30px !important;
         margin: 30px 0 !important;
+        justify-content: center;
     }
     
     .about-content > div:nth-child(3) > div {
         max-width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 10px !important;
+    }
+    
+    .about-content > div:nth-child(3) > div h3 {
+        font-size: 1.1em !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .about-content > div:nth-child(3) > div p {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+        font-size: 0.9em !important;
     }
     
     /* Skills Section Mobile */
@@ -643,6 +665,20 @@ nav {
     
     .profile-image {
         max-width: 200px;
+    }
+    
+    .content-area {
+        align-items: center;
+        justify-content: center;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+    
+    .about-content {
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
     
     .about-content h2 {
